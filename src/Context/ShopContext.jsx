@@ -17,7 +17,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    fetch(`${backend_url}/allproducts`)
+    fetch(`${backend_url}/api/v1/allproducts`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
 
@@ -75,7 +75,7 @@ const ShopContextProvider = (props) => {
     }
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch(`${backend_url}/addtocart`, {
+      fetch(`${backend_url}/api/v1/addtocart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -90,7 +90,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch(`${backend_url}/removefromcart`, {
+      fetch(`${backend_url}/api/v1/removefromcart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
