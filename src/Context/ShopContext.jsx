@@ -22,7 +22,7 @@ const ShopContextProvider = (props) => {
       .then((data) => setProducts(data));
 
     if (localStorage.getItem("auth-token")) {
-      fetch(`${backend_url}/getcart`, {
+      fetch(`${backend_url}/api/v1/getcart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
