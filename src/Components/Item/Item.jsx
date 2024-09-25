@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { currency } from "../../App";
 
 const Item = (props) => {
-  console.log(props);
   const { image, name, new_price, old_price } = props;
   return (
     <div className="item">

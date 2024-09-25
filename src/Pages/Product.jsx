@@ -14,7 +14,7 @@ const Product = () => {
   useEffect(() => {
     setProduct(products.find((e) => e.id === Number(productId)));
   }, [products, productId]);
-  console.log(product);
+
   return product ? (
     <div>
       <Breadcrums product={product} />
